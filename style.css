@@ -1,0 +1,278 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  margin: 0;
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+  animation: starMove 100s linear infinite, twinkle 5s ease-in-out infinite;
+  z-index: -1;
+}
+#lg-logo {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 90px; 
+  height: auto;
+  z-index: 1000;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+#lg-logo:hover {
+  transform: scale(1.05);
+}
+
+@keyframes glowPulse {
+  0% { filter: drop-shadow(0 0 5px #00ffff); }
+  50% { filter: drop-shadow(0 0 15px #00ffff); }
+  100% { filter: drop-shadow(0 0 5px #00ffff); }
+}
+
+@keyframes starMove {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-100px, -100px); }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.4; }
+}
+
+.container {
+  max-width: 100%;
+  margin: auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+
+input {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 1rem 0;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  box-sizing: border-box;
+}
+
+
+button {
+  padding: 0.6rem 1.2rem;
+  margin: 0.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #2ecc71, #27ae60);
+  color: white;
+  border: 1px solid #2ecc71;
+  cursor: pointer;
+  box-shadow: 0 0 10px #2ecc71, 0 0 20px #2ecc71 inset;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background: #289957;
+  box-shadow: 0 0 15px #2e9e5c, 0 0 30px #2d8853 inset;
+  transform: scale(1.05);
+}
+
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+
+#responseBox {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  background-color: #161b22;
+  font-size: 0.95rem;
+}
+
+
+#solar-system {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 250px;
+  margin: 20px auto;
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+
+@media (max-width: 500px) {
+  #solar-system {
+    transform: scale(0.8);
+  }
+}
+
+
+/* Sun */
+#sun {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, yellow, orange);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 30px yellow;
+  z-index: 2;
+}
+
+/* Orbits */
+.orbit {
+  position: absolute;
+  top: 50%; left: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+/* Orbit Sizes  */
+.orbit1 { width: 60px; height: 60px; }
+.orbit2 { width: 90px; height: 90px; }
+.orbit3 { width: 120px; height: 120px; }
+.orbit4 { width: 150px; height: 150px; }
+.orbit5 { width: 180px; height: 180px; }
+.orbit6 { width: 210px; height: 210px; }
+.orbit7 { width: 240px; height: 240px; }
+.orbit8 { width: 270px; height: 270px; }
+
+/* Planets */
+.planet {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: -50% center;
+  border-radius: 50%;
+  opacity: 0.9;
+  z-index: 1;
+}
+
+#mercury { width: 8px; height: 8px; background: gray; animation: orbit1 4s linear infinite; }
+#venus   { width: 10px; height: 10px; background: #c2b280; animation: orbit2 6s linear infinite; }
+#earth   { width: 12px; height: 12px; background: #3fa9f5; animation: orbit3 8s linear infinite; }
+#mars    { width: 10px; height: 10px; background: #ff4500; animation: orbit4 10s linear infinite; }
+#jupiter { width: 14px; height: 14px; background: #daa520; animation: orbit5 12s linear infinite; }
+#saturn  { width: 12px; height: 12px; background: #deb887; animation: orbit6 14s linear infinite; }
+#uranus  { width: 10px; height: 10px; background: #00ffff; animation: orbit7 16s linear infinite; }
+#neptune { width: 10px; height: 10px; background: #4169e1; animation: orbit8 18s linear infinite; }
+
+/* Orbit Animations */
+@keyframes orbit1 { 0% { transform: rotate(0deg) translateX(30px); } 100% { transform: rotate(360deg) translateX(30px); } }
+@keyframes orbit2 { 0% { transform: rotate(0deg) translateX(45px); } 100% { transform: rotate(360deg) translateX(45px); } }
+@keyframes orbit3 { 0% { transform: rotate(0deg) translateX(60px); } 100% { transform: rotate(360deg) translateX(60px); } }
+@keyframes orbit4 { 0% { transform: rotate(0deg) translateX(75px); } 100% { transform: rotate(360deg) translateX(75px); } }
+@keyframes orbit5 { 0% { transform: rotate(0deg) translateX(90px); } 100% { transform: rotate(360deg) translateX(90px); } }
+@keyframes orbit6 { 0% { transform: rotate(0deg) translateX(105px); } 100% { transform: rotate(360deg) translateX(105px); } }
+@keyframes orbit7 { 0% { transform: rotate(0deg) translateX(120px); } 100% { transform: rotate(360deg) translateX(120px); } }
+@keyframes orbit8 { 0% { transform: rotate(0deg) translateX(135px); } 100% { transform: rotate(360deg) translateX(135px); } }
+
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  input {
+    font-size: 0.95rem;
+  }
+  button {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.8rem;
+  }
+  #responseBox {
+    font-size: 0.9rem;
+  }
+}
+
+.settings-btn {
+  position:absolute;
+  top: 20px; 
+  right: 20px;
+  padding: 0.6rem 1rem;
+  background: #2d3748;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 0 10px #38b2ac;
+  transition: all 0.3s ease;
+}
+
+.settings-btn:hover {
+  box-shadow: 0 0 15px #81e6d9;
+  background: #1a202c;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+  background-color: #1f2937;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 90%;
+  max-width: 400px;
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #00ffff;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  border: none;
+}
+
+.modal-content button {
+  background: #238636;
+  padding: 0.5rem 1rem;
+  border: none;
+  color: white;
+  margin-top: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.close {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+  color: #fff;
+}

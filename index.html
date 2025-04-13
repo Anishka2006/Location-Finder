@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Space Facts Explorer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-wrapper">
+    
+    <header>
+      <h1>Liquid Galaxy Project</h1>
+      <img src="LIQUIDGALAXYLOGO.png" alt="Liquid Galaxy Logo" id="lg-logo" />
+    </header>
+
+    <main>
+      <!-- Solar System Background Animation -->
+      <div id="solar-system" aria-hidden="true">
+        <div id="sun"></div>
+
+        <div class="orbit orbit1"></div>
+        <div class="orbit orbit2"></div>
+        <div class="orbit orbit3"></div>
+        <div class="orbit orbit4"></div>
+        <div class="orbit orbit5"></div>
+        <div class="orbit orbit6"></div>
+        <div class="orbit orbit7"></div>
+        <div class="orbit orbit8"></div>
+
+        <div class="planet" id="mercury"></div>
+        <div class="planet" id="venus"></div>
+        <div class="planet" id="earth"></div>
+        <div class="planet" id="mars"></div>
+        <div class="planet" id="jupiter"></div>
+        <div class="planet" id="saturn"></div>
+        <div class="planet" id="uranus"></div>
+        <div class="planet" id="neptune"></div>
+      </div>
+
+      <!-- Main Content -->
+      <section class="container" aria-label="Ask a question">
+        <h2>📍LOCATION FINDER📍</h2>
+
+        <input type="text" id="userInput" placeholder="Where do you want to go?" aria-label="Ask about space">
+        
+        <div class="btn-group">
+          <button onclick="handleAsk()" title="Ask the AI">💡 Ask</button>
+          <button onclick="speakResponse()" title="Read aloud">🔊 Speak</button>
+          <button onclick="togglePausePlay()" title="Pause or resume voice">⏸️ Pause/Resume</button>
+          <!--<button onclick="showOnLG()" title="Send to Liquid Galaxy">🌍 Show on LG</button>-->
+        </div>
+
+        <div id="responseBox" class="response-box" aria-live="polite"></div>
+        <div id="loader" class="loader" style="display: none;"></div>
+      </section>
+    </main>
+
+    <!-- Settings Button -->
+    <button onclick="openSettings()" class="settings-btn" title="API Key Settings">⚙️ API Settings</button>
+
+    <!-- API Key Modal -->
+    <div id="settingsModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+      <div class="modal-content">
+        <span class="close" onclick="closeSettings()" title="Close">&times;</span>
+        <h2 id="settingsTitle">Enter Your Hugging Face API Key</h2>
+        <input type="text" id="apiKeyInput" placeholder="hf_..." aria-label="API Key">
+        <button onclick="saveApiKey()">Save</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
