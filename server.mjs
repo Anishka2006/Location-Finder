@@ -108,32 +108,32 @@ app.post('/generate-kml', async (req, res) => {
 
     // Write new KML to file
     fs.writeFileSync(kmlFilePath, kml, 'utf8');
-    console.log('🗂️  KML file generated:', kmlFilePath);
+    console.log('KML file generated:', kmlFilePath);
 
     // 5. Open in Google Earth Pro (on macOS)
     const macGEPPath = '/Applications/Google Earth Pro.app/Contents/MacOS/Google Earth';
     exec(`"${macGEPPath}" "${kmlFilePath}"`, (error, stdout, stderr) => {
       if (error && !stdout.includes('OpenGL')) {
-        console.error(`❌ Google Earth Pro exec error:`, error.message);
+        console.error(`Google Earth Pro exec error:`, error.message);
         return;
       }
 
       if (stderr) {
-        console.log('📝 Google Earth Pro log (stderr):', stderr); // Not always an error
+        console.log('Google Earth Pro log (stderr):', stderr); // Not always an error
       }
 
-      console.log('✅ Google Earth Pro launched successfully.');
-      console.log('📤 stdout:', stdout);
+      console.log('Google Earth Pro launched successfully.');
+      console.log('stdout:', stdout);
     });
 
-    res.status(200).json({ message: '✅ KML generated and launched successfully!', location });
+    res.status(200).json({ message: 'KML generated and launched successfully!', location });
 
   } catch (err) {
-    console.error("💥 Server error:", err);
+    console.error("Server error:", err);
     res.status(500).json({ error: "Something went wrong." });
   }
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Backend server running at http://localhost:${PORT}`);
+  console.log(`Backend server running at http://localhost:${PORT}`);
 });
