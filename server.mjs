@@ -38,6 +38,7 @@ app.post('/generate-kml', async (req, res) => {
       body: JSON.stringify({ inputs: prompt }),
     });
 
+    
     const hfData = await hfResponse.json();
     console.log('Hugging Face Response:', hfData);
 
