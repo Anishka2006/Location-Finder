@@ -97,7 +97,7 @@ function showOnLG() {
     .catch(error => console.error('Error:', error));
 }
 
-// Parse the response for coordinates (adjust this to fit the model's response)
+// Parse/Extract the response for coordinates (adjust this to fit the model's response)
 function parseCoordinates(responseText) {
   console.log("Parsing response text:", responseText);
 
