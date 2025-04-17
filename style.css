@@ -19,6 +19,7 @@ body::before {
   animation: starMove 100s linear infinite, twinkle 5s ease-in-out infinite;
   z-index: -1;
 }
+
 #lg-logo {
   position: absolute;
   top: 1rem;
@@ -55,7 +56,6 @@ body::before {
   box-sizing: border-box;
 }
 
-
 input {
   width: 100%;
   padding: 0.8rem;
@@ -65,7 +65,6 @@ input {
   border: none;
   box-sizing: border-box;
 }
-
 
 button {
   padding: 0.6rem 1.2rem;
@@ -86,14 +85,12 @@ button:hover {
   transform: scale(1.05);
 }
 
-
 .btn-group {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.5rem;
 }
-
 
 #responseBox {
   margin-top: 1.5rem;
@@ -103,7 +100,6 @@ button:hover {
   background-color: #161b22;
   font-size: 0.95rem;
 }
-
 
 #solar-system {
   position: relative;
