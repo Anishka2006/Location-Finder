@@ -79,7 +79,7 @@ This project allows users to interact with an AI to get location-specific detail
 
 ```json
 {
-  "message": "✅ KML generated and launched successfully!",
+  "message": "KML generated and launched successfully!",
   "location": "Mumbai"
 }
 ```
